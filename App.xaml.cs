@@ -17,6 +17,7 @@ namespace MVVMLight
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
             DispatcherHelper.Initialize();
         }
     }

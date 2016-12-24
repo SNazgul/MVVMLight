@@ -22,13 +22,22 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="0">
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5">
             <StackPanel Orientation="Horizontal">
                 <Label>Status:</Label>
                 <TextBlock Margin="5, 0, 0, 0" Text="{Binding Path=Status}" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
             <Button HorizontalAlignment="Center" Padding="5" Command="{Binding Path=RequestStatus}">Request status</Button>
         </StackPanel>
-        
+
+        <DockPanel Grid.Row="0" Grid.Column="1" Margin="5">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <Label>Status:</Label>
+                <TextBlock Margin="5, 0, 0, 0" Text="{Binding Path=StatusWebRequest}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>            
+            <Button HorizontalAlignment="Center" Padding="5" Command="{Binding Path=RequestWebStatusCommand}" DockPanel.Dock="Bottom">Request status</Button>
+            <TextBox Margin="0, 5, 0, 5" Text="{Binding Path=WebRequestTest}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
+        </DockPanel>
+
     </Grid>
 </Window>
