@@ -6,7 +6,29 @@
         xmlns:local="clr-namespace:MVVMLight"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    
+    <Window.DataContext>
+        <local:MainViewModel></local:MainViewModel>
+    </Window.DataContext>
+    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
+                <Label>Status:</Label>
+                <TextBlock Margin="5, 0, 0, 0" Text="{Binding Path=Status}" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+            <Button HorizontalAlignment="Center" Padding="5" Command="{Binding Path=RequestStatus}">Request status</Button>
+        </StackPanel>
         
     </Grid>
 </Window>
