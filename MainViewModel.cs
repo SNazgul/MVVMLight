@@ -19,7 +19,12 @@ namespace MVVMLight
         public MainViewModel()
         {
             _rand = new Random();
-            RequestStatus = new RelayCommand(() => Task.Factory.StartNew(() => { Thread.Sleep(1000); StatusChanged("Status " + _rand.Next().ToString());}));
+            RequestStatus = new RelayCommand(() => Task.Factory.StartNew(() =>
+                {
+                    Thread.Sleep(1000);
+                    //StatusChanged("Status " + _rand.Next().ToString());
+                    StatusChangedThroughDispatcher("Status " + _rand.Next().ToString());
+                }));
         }
 
         public String Status
@@ -43,5 +48,9 @@ namespace MVVMLight
            Status = newStatus;
         }
 
+        public void StatusChangedThroughDispatcher(String newStatus)
+        {
+            DispatcherHelper.CheckBeginInvokeOnUI(() => StatusChanged(newStatus));
+        }
     }
 }
