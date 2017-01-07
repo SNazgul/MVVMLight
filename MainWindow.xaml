@@ -40,5 +40,12 @@
             <TextBox Margin="0, 5, 0, 5" Text="{Binding Path=WebRequestTest}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
         </DockPanel>
 
+        <DockPanel Grid.Row="1" Grid.Column="0" Margin="5">
+            <Label DockPanel.Dock="Top">Navigation Frame</Label>
+            <Frame DockPanel.Dock="."></Frame>
+            <Button HorizontalAlignment="Center" Padding="5" Command="{Binding Path=RequestWebStatusCommand}" DockPanel.Dock="Bottom">Request status</Button>
+            <TextBox Margin="0, 5, 0, 5" Text="{Binding Path=WebRequestTest}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
+        </DockPanel>
+
     </Grid>
 </Window>

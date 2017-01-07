@@ -24,5 +24,7 @@ namespace MVVMLight
         {
             InitializeComponent();
         }
+
+        
     }
 }
