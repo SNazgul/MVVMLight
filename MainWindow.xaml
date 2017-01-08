@@ -8,11 +8,12 @@
         xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"        
-        d:DataContext="{d:DesignInstance Type=local:MainViewModel, IsDesignTimeCreatable=True}">
+        d:DataContext="{d:DesignInstance Type=local:MainViewModel, IsDesignTimeCreatable=True}"
+        local:VideModelLocator.AutoWireViewModel="True">
     
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <local:MainViewModel></local:MainViewModel>
-    </Window.DataContext>
+    </Window.DataContext>-->
     
     <Grid>
         <Grid.ColumnDefinitions>
