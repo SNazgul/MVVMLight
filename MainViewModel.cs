@@ -37,7 +37,7 @@ namespace MVVMLight
             get { return _status; }
             set
             {
-                Set(() => Status, ref _status, value);                
+                Set(ref _status, value);                
             }
         }
 
@@ -72,7 +72,7 @@ namespace MVVMLight
             get { return _statusWebRequest; }
             set
             {
-                Set(() => StatusWebRequest, ref _statusWebRequest, value);
+                Set(ref _statusWebRequest, value);
             }
         }
 
@@ -81,7 +81,7 @@ namespace MVVMLight
             get { return _webRequestTest; }
             set
             {
-                Set(() => WebRequestTest, ref _webRequestTest, value);
+                Set(ref _webRequestTest, value);
             }
         }
 
