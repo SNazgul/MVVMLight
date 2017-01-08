@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMLight"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MainWindow" Height="350" Width="525"        
         d:DataContext="{d:DesignInstance Type=local:MainViewModel, IsDesignTimeCreatable=True}">
     
     <Window.DataContext>
@@ -42,9 +44,22 @@
 
         <DockPanel Grid.Row="1" Grid.Column="0" Margin="5">
             <Label DockPanel.Dock="Top">Navigation Frame</Label>
-            <Frame DockPanel.Dock="."></Frame>
+            <!--<Frame DockPanel.Dock="."></Frame>-->
             <Button HorizontalAlignment="Center" Padding="5" Command="{Binding Path=RequestWebStatusCommand}" DockPanel.Dock="Bottom">Request status</Button>
             <TextBox Margin="0, 5, 0, 5" Text="{Binding Path=WebRequestTest}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
+        </DockPanel>
+
+        <DockPanel  Grid.Row="1" Grid.Column="1" Margin="5">
+            <Label DockPanel.Dock="Top">Interaction frame</Label>
+            <Button HorizontalAlignment="Center" Padding="5" DockPanel.Dock="Bottom" Content="Request interaction">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <ic:CallMethodAction TargetObject="{Binding}" MethodName="RequestInteraction">                            
+                        </ic:CallMethodAction>                        
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <TextBox Margin="0, 5, 0, 5" Text="{Binding Path=InteractionText}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
         </DockPanel>
 
     </Grid>

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -115,5 +116,35 @@ namespace MVVMLight
         }
 
         #endregion
+
+
+
+        #region Right bottom cell
+
+        public void RequestInteraction()
+        {
+            InteractionText = Guid.NewGuid().ToString();
+        }
+
+        private String _interactionTest;
+
+        public String InteractionText
+        {
+            get
+            {
+                return _interactionTest;
+            }
+
+            set
+            {
+                Set(ref _interactionTest, value);
+            }
+        }
+
+        #endregion
+
+
+        
+
     }
 }
