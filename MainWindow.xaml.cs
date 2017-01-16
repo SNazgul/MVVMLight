@@ -40,5 +40,7 @@ namespace MVVMLight
             InitializeComponent();
          
         }
+
+        
     }
 }
