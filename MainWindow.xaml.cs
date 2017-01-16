@@ -20,9 +20,25 @@ namespace MVVMLight
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static readonly DependencyProperty CurrentPerson = DependencyProperty.RegisterAttached(
+            "CurrentPerson",
+            typeof(String),
+            typeof(MainWindow),
+            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsRender)
+        );
+        public static void SetCurrentPerson(UIElement element, String value)
+        {
+            element.SetValue(CurrentPerson, value);
+        }
+        public static String GetCurrentPerson(UIElement element)
+        {
+            return (String)element.GetValue(CurrentPerson);
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+         
         }
     }
 }
