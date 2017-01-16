@@ -7,13 +7,13 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:ic="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"        
+        Title="MainWindow" Height="500" Width="525"        
         d:DataContext="{d:DesignInstance Type=local:MainViewModel, IsDesignTimeCreatable=True}"
         local:VideModelLocator.AutoWireViewModel="True">
     
-    <!--<Window.DataContext>
+    <Window.DataContext>
         <local:MainViewModel></local:MainViewModel>
-    </Window.DataContext>-->
+    </Window.DataContext>
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -22,6 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -63,8 +64,21 @@
             <TextBox Margin="0, 5, 0, 5" Text="{Binding Path=InteractionText}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
         </DockPanel>
 
+        <local:MyUserControl  Grid.Row="2" Grid.Column="0" local:MainWindow.CurrentPerson="Peter">            
+        </local:MyUserControl>
 
-        <!-- <local:MyUserControl local:MainWindow.CurrentPerson="Peter">            
-        </local:MyUserControl> -->
+        <DockPanel Grid.Row="2" Grid.Column="1" Margin="5">
+            <Label DockPanel.Dock="Top">Test IoC Frame</Label>
+            <!--<Frame DockPanel.Dock="."></Frame>-->
+            <Button HorizontalAlignment="Center" Padding="5" DockPanel.Dock="Bottom" Content="Test IoC">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                        <ic:CallMethodAction TargetObject="{Binding}" MethodName="TestIoC">
+                    </ic:CallMethodAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            </Button>
+            <TextBox Margin="0, 5, 0, 5" Text="{Binding Path=WebRequestTest}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"></TextBox>
+        </DockPanel>
     </Grid>
 </Window>

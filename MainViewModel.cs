@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Threading;
+using MVVMLight.IoC;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -143,8 +144,21 @@ namespace MVVMLight
 
         #endregion
 
+        #region Right bottom cell
 
-        
+        public void TestIoC()
+        {
+            GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.Register<GeneralDialogService>();
+            GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.Register<IFindDialogService>(() => GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<GeneralDialogService>());
+            GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.Register<IShowNameMessageService>(() => GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<GeneralDialogService>());
+
+            var srv = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<IFindDialogService>();
+            srv.ShowFindDialog();
+            var srv2 = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<IShowNameMessageService>();
+            srv2.ShowName("Papaya");
+        }
+
+        #endregion
 
     }
 }

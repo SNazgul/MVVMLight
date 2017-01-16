@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IoC\GeneralDialogService.cs" />
+    <Compile Include="IoC\IFindDialogService.cs" />
+    <Compile Include="IoC\IShowNameMessageService.cs" />
     <Compile Include="VideModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
